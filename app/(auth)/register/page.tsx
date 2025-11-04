@@ -1,8 +1,16 @@
+"use client";
 import coffreBg from '@/public/coffre-bg.png';
 import Image from 'next/image';
 import '../auth.css';
+import { useRouter } from 'next/navigation';
+
 export default function Register()
 {
+    const router = useRouter();
+    const goToLogin = () =>
+    {
+        router.push('login');
+    }
     return (
         <div className="container">
             <div className="rond B"></div>
@@ -15,7 +23,7 @@ export default function Register()
                 <label htmlFor="password">Password</label>
                 <input id="password" type="password" name="password" placeholder="John123456" required/>
                 <button type="submit">Register</button>
-                <button type="button">Already have an account? Log in</button>
+                <button type="button" onClick={goToLogin}>Already have an account? Log in</button>
             </form>
             <div className="rond kely"></div>        
         </div>
